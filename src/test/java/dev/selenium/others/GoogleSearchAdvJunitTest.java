@@ -49,7 +49,6 @@ public class GoogleSearchAdvJunitTest {
         assertResultsPage(actualPageTitle);
     }
 
-
     //Assert
     public void assertResultsPage(String actualPageTitle) {
         System.out.println("pageTitle = " + actualPageTitle);
@@ -57,13 +56,10 @@ public class GoogleSearchAdvJunitTest {
 
     }
 
-
     //TearDown
     @AfterClass
     public static void tearDown() {
         driver.close();
         driver.quit();
-
     }
-
 }

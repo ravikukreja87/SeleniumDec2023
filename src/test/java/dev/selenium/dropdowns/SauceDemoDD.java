@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 public class SauceDemoDD {
 
 
-
     private WebDriver driver;
 
     @Before
@@ -38,6 +37,5 @@ public class SauceDemoDD {
         WebElement productSortContainerDD = driver.findElement(By.xpath("//select[@data-test='product_sort_container']"));
         Select select = new Select(productSortContainerDD);
         select.selectByValue("lohi");
-
     }
 }

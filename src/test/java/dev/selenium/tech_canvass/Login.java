@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,40 +20,18 @@ public class Login {
     WebDriver driver;
     //SEAT
 
-
     @BeforeTest
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    /*@BeforeTest
-    public void setUp() {
-
-        Scanner in = new Scanner(System.in);
-        System.out.print("Press 1 for Chrome\nPress 2 for Firefox\nPress 3 for Edge");
-        int choice = in.nextInt();
-        switch (choice) {
-            case 1:
-                driver = new ChromeDriver();
-                break;
-            case 2:
-                driver = new FirefoxDriver();
-                break;
-            case 3:
-                driver = new EdgeDriver();
-                break;
-            default:
-                System.out.println("Please enter correct choice");
-        }
-
-        driver.manage().window().maximize();
-    }*/
-
     @Test
     public void testLogin() {
         driver.get("https://techedge.techcanvass.co/Login.aspx");
-        AssertionsLogin.assertLogin(driver.getTitle().trim());
+
+        String expectedTitle = "Techcanvass LMS Portal – TechEdge | Learning made simple";
+        Assert.assertEquals(driver.getTitle().trim(), expectedTitle);
 
         WebElement loginTextBox = driver.findElement(By.id("txtLoginid"));
         loginTextBox.clear();
@@ -70,7 +49,6 @@ public class Login {
         System.out.println("alertText = " + alertText);
         alert.accept();
     }
-
 
     @AfterTest
     public void tearDown() {

@@ -22,24 +22,15 @@ public class CheckBoxSampleTwo {
     public void testCheckboxTwo() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
-
         List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
 
-        for(WebElement checkBox : checkBoxes){
+        for (WebElement checkBox : checkBoxes) {
 
-            if(checkBox.isSelected()){
+            if (checkBox.isSelected()) {
                 System.out.println("Already checked = " + checkBox.getText());
-            }else{
+            } else {
                 checkBox.click();
             }
-
         }
-
-
-
-
-
-
     }
-
 }
